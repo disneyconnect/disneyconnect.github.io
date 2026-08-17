@@ -4,11 +4,21 @@
 <body>
   <section>
     <h1>DisneyConnect.com</h1>
-    This is a (bare-bones) recreation of the defunct site that generated working cheat codes for Phineas and Ferb: Across the 2nd Dimension DS<br/><br/>
+    This is a (bare-bones) recreation of the defunct site that generated working cheat codes for the following games:
+	<ul>
+  <li>Phineas and Ferb: Across the 2nd Dimension DS
+  <li>Cars 2 DS</li>
+	</ul>If you know of any other disney games that use this code format, let me know and i'll add them to this site.
+		<br/><br/>
     From the title screen, tap Code Redemption, then Redeem Code Offline.<br/>
-    The game will give you a code to enter here, then the site will give you codes to enter into the game.<br/>Make sure your code is in ALL CAPS, 13 characters, and only uses these characters: 012345689ACEFHKMPRTWXY<br/><br/>
+	In Cars 2, this is under Extras.<br/>
+	
+    The game will give you a code to enter here, then the site will give you codes to enter into the game.<br/>
+	The code will be different per game depending on which DS you are playing on.<br/>
+	Make sure your code is in ALL CAPS, 13 characters, and only uses these characters: 012345689ACEFHKMPRTWXY<br/><br/>
     <input type="text" id="input" maxlength="13" placeholder="WP90R5F3FT90C"/>
     <section id="warning" style="color:red;"></section>
+	<h3>Phineas and Ferb: Across the 2nd Dimension DS Codes:</h3>
     <section id="code1"></section>
     <section id="code2"></section>
     <section id="code3"></section>
@@ -21,6 +31,9 @@
     <section id="code10"></section>
     <section id="code11"></section>
     <section id="code12"></section>
+	<h3>Cars 2 DS Codes:</h3>
+	<section id="carscode"></section>
+	<section id="carsd2"></section>
   </section>
   <script>
   sha1 = (function() {
@@ -312,6 +325,7 @@ document.getElementById("input").addEventListener("keyup",function(){
 	code10 = "CAKMEHY0"
 	code11 = "4268RPY0"
 	code12 = "XPWX0XY0"
+	cars = "XKP8WA51"
     alpha = "012345689ACEFHKMPRTWXY"
     code1d = "Safari-Ferb: "
 	code2d = "Safari Perry: "
@@ -325,7 +339,8 @@ document.getElementById("input").addEventListener("keyup",function(){
 	code10d = "Evil Doof Theme Touch Screen: "
 	code11d = "Agent P Theme Touch Screen: "
 	code12d = "Agent T: "
-    
+	carsd = ": All American Theme, England Theme, France Theme, Italy Theme, Japan Theme, Germany Theme"
+    carsd2 ="Using any code from the Phineas and Ferb section in Cars 2 will unlock the Materhosen Theme"
     current = code1
     currentd = code1d
   enc = document.getElementById("code1")
@@ -578,9 +593,29 @@ document.getElementById("input").addEventListener("keyup",function(){
   scrumble = comb.charAt(8) + comb.charAt(13) + comb.charAt(5) + comb.charAt(3) + comb.charAt(9) + comb.charAt(7) + comb.charAt(10) + comb.charAt(0) + comb.charAt(6) + comb.charAt(12) + comb.charAt(11) + comb.charAt(1) + comb.charAt(4) + comb.charAt(2)
   enc.innerHTML = currentd + scrumble;  
   
+  current = cars
+    currentd = carsd
+  enc = document.getElementById("carscode")
+  scramble = input.charAt(10) + input.charAt(3) + input.charAt(4) + input.charAt(1) + input.charAt(6) + input.charAt(2) + input.charAt(9) + input.charAt(11) + input.charAt(12) + input.charAt(0) + input.charAt(5) + input.charAt(7) + input.charAt(8)
+  currentcode = scramble + current + jj
+  stuff = sha1.sha1(currentcode)
+  stuff2 = stuff.charAt(4) + stuff.charAt(5) + stuff.charAt(2) + stuff.charAt(3) + stuff.charAt(0) + stuff.charAt(1)
+  stuff3 = parseInt(stuff2, 16)
+  mod1 = stuff3 % 22
+  div1 = Math.floor(stuff3 / 22)
+  mod2 = div1 % 22
+  div2 = Math.floor(div1 / 22)
+  mod3 = div2 % 22
+  div3 = Math.floor(div2 / 22)
+  mod4 = div3 % 22
+  div4 = Math.floor(div3 / 22)
+  mod5 = div4 % 22
+  comb = current + alpha.charAt(mod1) + alpha.charAt(mod2) + alpha.charAt(mod3) + alpha.charAt(mod4) + alpha.charAt(mod5) + "0"
+  scrumble = comb.charAt(8) + comb.charAt(13) + comb.charAt(5) + comb.charAt(3) + comb.charAt(9) + comb.charAt(7) + comb.charAt(10) + comb.charAt(0) + comb.charAt(6) + comb.charAt(12) + comb.charAt(11) + comb.charAt(1) + comb.charAt(4) + comb.charAt(2)
+  enc.innerHTML = scrumble + currentd;    
   
-  
-  
+  enc = document.getElementById("carscode")
+  enc.innerhtml = carsd2;
   
   
   
